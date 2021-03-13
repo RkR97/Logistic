@@ -1,0 +1,18 @@
+<p>
+  <mat-toolbar class="navhead">
+    <div class="logo">Logistic <span>Agency</span></div>
+    <ul>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-home"></i> Home</a></li>
+      <li><a routerLink="/topCourier" routerLinkActive="active"><i class="fas fa-dolly"></i> Top Courier</a></li>
+      <li><a routerLink="/contactUs" routerLinkActive="active"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+    </ul>
+    <span class="example-spacer"></span>
+    <button mat-raised-button routerLink="/signin" *ngIf="!_authService.loggedIn()" class="btn">Sign in</button>
+    <button mat-raised-button routerLink="/signup" *ngIf="!_authService.loggedIn()" class="btn">Sign Up</button>
+    <div *ngIf="_authService.loggedIn()">
+      <button mat-raised-button style="cursor: pointer;" class="btn" (click)="false">Welcome
+        {{_authService.getUserName()}}</button>
+      <button mat-raised-button style="cursor: pointer;" class="btn" (click)="_authService.logoutUser()">Logout</button>
+    </div>
+  </mat-toolbar>
+</p>

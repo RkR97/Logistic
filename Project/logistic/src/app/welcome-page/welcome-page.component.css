@@ -1,0 +1,7 @@
+
+.card-div{
+    margin: auto 0;
+}
+mat-card{
+    background-image: linear-gradient(to bottom, #03a9f43b, white, white);
+  }
