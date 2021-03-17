@@ -1,8 +1,34 @@
 .example-card {
-  max-width: 400px;
+  max-width: 850px;
+  z-index: 10;
+  box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
+  border-radius: 15px;
+  font-family:'Courier New', Courier, monospace;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+mat-form-field{
+  margin: 0 10px;
+  border-left: 1px solid #f6685e;
+  padding-left: 10px;
+}
+
+mat-card .btn {
+  margin-top: 15px;
+  width: 140px;
+  min-height: 40px;
+  border: 1px solid #f6685e;
+  font-size: 20px;
+  font-weight: 500;
+  color: #f6685e;
+  cursor: pointer;
+  background-color: #f6685e;
+  color: #fff;
+  outline: none;
+}
+
+mat-card .btn:hover {
+  background: #877ae9;
+  border: 1px solid #f6685e;
+  color: #fff;
+  transition: all .4s ease;
 }

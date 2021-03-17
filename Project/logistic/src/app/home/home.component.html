@@ -9,37 +9,40 @@
         <button class="bttn2">Rail</button>
         <button class="bttn2">Road</button>
       </div>
-      <form [formGroup]="data" (ngSubmit)="onSubmit()">
-        <div class="booking_details">
-          <div class="item">
-            From
-            <br>
-            <input type="text" placeholder="Enter Source" formControlName="src" list="Sources" />
-            <datalist id="Sources">
-              <option *ngFor="let item of allDataSrc " value="{{item}}">
-            </datalist>
-          </div>
-          <div class="item">
-            To
-            <br>
-            <input type="text" placeholder="Enter Destination" formControlName="des" list="Destination" />
-            <datalist id="Destination">
-              <option *ngFor="let item2 of allDataDes " value="{{item2}}">
-            </datalist>
-          </div>
-          <div class="item">
-            Weight
-            <br>
-            <input type="text" placeholder="Enter Weight" formControlName="kg" />
-          </div>
-          <div class="item">
-            Price
-            <br>
-            <input type="text" placeholder="Price = {{price}}" disabled />
-          </div>
-        </div>
-        <button type="submit" class="bttn3">Calculate</button>
-      </form>
+      <mat-card class="example-card">
+        <form [formGroup]="data" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-label>From</mat-label>
+            <input matInput placeholder="Enter Source" formControlName="src" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let item of allDataSrc" [value]="item">
+                {{item}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error>This Field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>To</mat-label>
+            <input matInput placeholder="Enter Destination" formControlName="des" [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete">
+              <mat-option *ngFor="let item2 of allDataDes" [value]="item2">
+                {{item2}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error>This Field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Weight</mat-label>
+            <input matInput placeholder="Enter Weight" formControlName="kg">
+            <mat-error>This Field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput value={{price}} disabled>
+          </mat-form-field>
+          <button mat-raised-button type="submit" class="btn">Calculate</button>
+        </form>
+      </mat-card>
     </div>
   </div>
   <img src="../../assets/img/hotel.png" class="hotel" alt="">

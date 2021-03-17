@@ -25,6 +25,7 @@ import { TopCourierComponent } from './top-courier/top-courier.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     MatFormFieldModule,
     MatCardModule,
     MatTableModule,
+    MatAutocompleteModule
   ],
   providers: [
     AlertifyService,
