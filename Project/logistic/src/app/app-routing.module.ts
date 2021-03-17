@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: HomeComponent, canActivate: [AuthgaurdGuard] },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'topCourier', component: TopCourierComponent, canActivate: [AuthgaurdGuard] },
+  { path: 'service-partner', component: TopCourierComponent },
   { path: 'logout', component: LogoutPageComponent },
   { path: 'contactUs', component: ContactUsComponent }
 ];

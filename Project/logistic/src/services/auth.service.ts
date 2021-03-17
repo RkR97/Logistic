@@ -10,10 +10,20 @@ export class AuthService {
   private registrationUrl = "http://localhost:5000/signup";
   private loginUrl = "http://localhost:5000/signin";
   private dataUrl = "http://localhost:5000/data";
+  private allDataSrc = "http://localhost:5000/allData/src";
+  private allDataDes = "http://localhost:5000/allData/des";
   constructor(private http: HttpClient, private route: Router) { }
 
-  getData() {
-    return this.http.get<any>(this.dataUrl);
+  getAllDataSrc() {
+    return this.http.get(this.allDataSrc);
+  }
+
+  getAllDataDes() {
+    return this.http.get(this.allDataDes);
+  }
+
+  getData(src: any, des: any) {
+    return this.http.get(`${this.dataUrl}/${src}/${des}`);
   }
   registerationUser(newUser: any) {
     return this.http.post(this.registrationUrl, newUser);

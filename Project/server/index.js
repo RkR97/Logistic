@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const passport = require('passport');
 require("./models/db");
-//const logisticHomeController = require('./controllers/logisticHomeController');
+const logisticHomeController = require('./controllers/logisticHomeController');
 const logisticLoginController = require('./controllers/logisticLoginController');
 const logisticRegController = require('./controllers/logisticRegController');
 const userModel = require('./models/logistic_reg.model');
-const homeApi = require('./API/api');
+//const homeApi = require('./API/api');
 const app = express();
 
 // stratigy 
@@ -42,7 +42,9 @@ app.use(bodyParser.json());
 
 app.use('/signup', logisticRegController);
 app.use('/signin', logisticLoginController);
-app.use('/data', homeApi);
+app.use('/data', logisticHomeController);
+app.use('/allData/src', logisticHomeController);
+app.use('/', logisticHomeController);
 
 app.listen(port, () => {
     console.log(`Server is running at port no. : ${port}`);

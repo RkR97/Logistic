@@ -1,7 +1,20 @@
 
 .card-div{
-    margin: auto 0;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
 }
-mat-card{
-    background-image: linear-gradient(to bottom, #03a9f43b, white, white);
+
+  h1{
+      text-align: center;
+      margin-top: 10px;
   }
+  h3{
+      
+      margin:0px;
+  }
+
+  
+  
+  

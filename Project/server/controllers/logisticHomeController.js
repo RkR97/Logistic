@@ -1,6 +1,43 @@
 const express = require('express');
 const router = express.Router();
+const LogisticHome = require('../models/logistic.model');
+// const jwt = require('jsonwebtoken');
 
+// function verifyToken(req, res, next) {
+//     if (!req.headers.authorization) {
+//         res.json({ message: "Unauthorized request", status: 401 })
+//     }
+//     let token = req.headers.authorization.split(' ')[1]
+//     if (token === 'null') {
+//         res.json({ message: "Unauthorized request", status: 401 })
+//     }
+//     let payload = jwt.verify(token, 'secret')
+//     if (!payload) {
+//         res.json({ message: "Unauthorized request", status: 401 })
+//     }
+//     req.userId = payload.subject
+//     next();
+// }
 
+router.get('', async (req, res) => {
+    const src = await LogisticHome.distinct("src")
+    res.json({ messgae: "Source", status: 200, data: src })
+})
+
+router.get('/allData/des', async (req, res) => {
+    const des = await LogisticHome.distinct("des")
+    res.json({ messgae: "Destination", status: 200, data: des })
+})
+
+router.get('/:src/:des', (req, res) => {
+    var { src, des } = req.body;
+    LogisticHome.find({ src: req.params.src, des: req.params.des }, (err, docs) => {
+        if (err) { throw err }
+        else if (!docs) {
+            res.json({ message: "No Service", status: 202 })
+        }
+        res.json({ messgae: "data", status: 200, data: docs })
+    })
+})
 
 module.exports = router;

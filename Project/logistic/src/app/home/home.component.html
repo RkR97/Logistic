@@ -1,49 +1,46 @@
 <div class="container">
   <div class="hotel_content">
     <div class="info">
-      <h2>Search</h2>
+      <h2>Calculate Price</h2>
     </div>
     <div class="booking_info">
-      <form>
+      <div class="opt">
+        <button class="bttn2">Flight</button>
+        <button class="bttn2">Rail</button>
+        <button class="bttn2">Road</button>
+      </div>
+      <form [formGroup]="data" (ngSubmit)="onSubmit()">
         <div class="booking_details">
           <div class="item">
             From
             <br>
-            <input type="text" placeholder="Enter Source" />
+            <input type="text" placeholder="Enter Source" formControlName="src" list="Sources" />
+            <datalist id="Sources">
+              <option *ngFor="let item of allDataSrc " value="{{item}}">
+            </datalist>
           </div>
           <div class="item">
             To
             <br>
-            <input type="text" placeholder="Enter Destination" />
+            <input type="text" placeholder="Enter Destination" formControlName="des" list="Destination" />
+            <datalist id="Destination">
+              <option *ngFor="let item2 of allDataDes " value="{{item2}}">
+            </datalist>
           </div>
           <div class="item">
             Weight
             <br>
-            <input type="text" placeholder="Enter Weight" />
+            <input type="text" placeholder="Enter Weight" formControlName="kg" />
+          </div>
+          <div class="item">
+            Price
+            <br>
+            <input type="text" placeholder="Price = {{price}}" disabled />
           </div>
         </div>
+        <button type="submit" class="bttn3">Calculate</button>
       </form>
-      <button class="bttn3" (click)="search()">Search</button>
     </div>
-  </div>
-  <div style="z-index: 5; margin: 0 auto; background-color: aliceblue;">
-    <!-- {{data | json}} -->
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Price</th>
-      </tr>
-      <tbody>
-        <tr *ngFor="let data of data">
-          <td>{{ data._id }}</td>
-          <td>{{ data.source }}</td>
-          <td>{{ data.des }}</td>
-          <td>{{ data.price | json}}</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
   <img src="../../assets/img/hotel.png" class="hotel" alt="">
   <img src="../../assets/img/car2.png" class="car2" alt="">
