@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AlertifyService } from '../../services/alertify.service';
 
+// for table import
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +14,14 @@ import { AlertifyService } from '../../services/alertify.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  data1: any = [];
+
+  flag: boolean = false
+  data1: any;
   i!: any;
   allDataSrc: any
   allDataDes: any
-  price: any
+  price: any = []
+  name: any = []
   constructor(private authService: AuthService, private alertify: AlertifyService, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -39,35 +44,29 @@ export class HomeComponent implements OnInit {
       this.authService.getData(this.data.value.src, this.data.value.des).subscribe((res: any) => {
         if (res.status == 200) {
           this.data1 = res.data
-          //this.price = this.data1[0].weights[0].price
-          if (this.data.value.kg <= 5) {
-            this.price = this.data1[0].weights[0].price
-          } else if (this.data.value.kg > 5 && this.data.value.kg <= 10) {
-            this.price = this.data1[0].weights[1].price
-          } else if (this.data.value.kg > 10 && this.data.value.kg <= 15) {
-            this.price = (0.05 * this.data1[0].weights[1].price) + (this.data1[0].weights[1].price)
-          } else if (this.data.value.kg <= 30) {
-            this.price = (0.10 * this.data1[0].weights[1].price) + (this.data1[0].weights[1].price)
-          } else {
-            this.alertify.error("Maximum weight is 30Kg")
+          //console.log(this.data1)
+          for (this.i = 0; this.i <= this.data1.length + 1; this.i++) {
+            this.name.push(this.data1[0].partner[this.i].name)
           }
+          //console.log(this.name)
+          for (this.i = 0; this.i <= this.data1.length + 1; this.i++) {
+            //this.price.push(this.data1[0].partner[this.i].price)
+            this.price.push((this.data.value.kg * this.data1[0].partner[this.i].price))
+          }
+          //console.log(this.price)
         }
       })
-    } else {
-      this.alertify.error("Enter Valid details")
     }
   }
-
-  // search() {
-  //   this.authService.getData()
-  //     .subscribe(
-  //       res => this.data = res,
-  //       err => {
-  //         if (err instanceof HttpErrorResponse) {
-  //           if (err.status === 401)
-  //             this.route.navigate(['/signin'])
-  //         }
-  //       }
-  //     )
-  // }
+  displayPrice() {
+    this.flag = !this.flag
+  }
 }
+
+
+
+
+
+
+
+

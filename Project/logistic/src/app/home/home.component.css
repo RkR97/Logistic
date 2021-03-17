@@ -1,5 +1,5 @@
 .example-card {
-  max-width: 850px;
+  max-width: 700px;
   z-index: 10;
   box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
   border-radius: 15px;
@@ -31,4 +31,49 @@ mat-card .btn:hover {
   border: 1px solid #f6685e;
   color: #fff;
   transition: all .4s ease;
+}
+
+
+.contactInfo_div{
+  display: flex;
+  margin: auto;
+}
+
+.example-card2 {
+  max-width: 400px;
+  z-index: 5;
+  background-image: linear-gradient(to bottom, #03a9f43b, white, white);
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.contactInfo_div .mat-card {
+  display: block;
+  padding: 16px;
+  border-radius: 27px;
+  width: 40%;
+  position: absolute;
+    left: 30%;
+}
+
+.contactInfo_div .mat-card>:first-child, .mat-card-content>:first-child {
+margin-top: 17px;
+margin-bottom: 13px;
+}
+
+.contactInfo_div mat-card.mat-card.mat-focus-indicator.example-card {
+font: 400 21px/31px Roboto, "Helvetica Neue", sans-serif;
+letter-spacing: normal;
+}
+
+table {
+  width: 100%;
 }

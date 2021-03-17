@@ -32,8 +32,8 @@ export class SigninComponent implements OnInit {
           this.route.navigate(['dashboard']);
           localStorage.setItem("userName", res.user.userName)
           localStorage.setItem("token", res.token)
-        } else {
-          this.alertify.error("Signin Failed");
+        } else if (res.status == 401) {
+          this.alertify.error("Please enter correct user name/password");
         }
       })
     } else {

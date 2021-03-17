@@ -5,7 +5,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 router.post('', (req, res) => {
-    var { userName, password } = req.body;
+    //var { userName, password } = req.body;
+    var userName = req.body.userName;
+    var password = req.body.password;
     LogisticLogin.findOne({ userName }, (err, docs) => {
         if (err) { throw err; }
         else if (!docs) {
@@ -14,7 +16,8 @@ router.post('', (req, res) => {
         bcrypt.compare(password, docs.password, (err, ans) => {
             if (err) { throw err }
             else if (ans) {
-                var token = jwt.sign({ userName: docs.userName }, 'secret')
+                let payload = { subject: docs._id }
+                let token = jwt.sign(payload, 'secretKey')
                 res.json({ message: "Login Succesfull", status: 200, user: docs, token });
             } else {
                 res.json({ message: "password not match", status: 401 })

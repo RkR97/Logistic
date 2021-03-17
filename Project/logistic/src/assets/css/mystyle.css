@@ -97,17 +97,6 @@ input {
   z-index: 2;
 }
 
-.flight {
-  position: absolute;
-  top: -1.8%;
-  -webkit-animation: drive_3 25s;
-          animation: drive_3 25s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  width: 80px;
-  z-index: 3;
-}
-
 .car2 {
   position: absolute;
   bottom: 5%;
@@ -126,17 +115,6 @@ input {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   width: 80px;
-  z-index: 3;
-}
-
-.dog_1 {
-  height: 6%;
-  position: absolute;
-  bottom: 9%;
-  -webkit-animation: drive 25s;
-          animation: drive 25s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
   z-index: 3;
 }
 
