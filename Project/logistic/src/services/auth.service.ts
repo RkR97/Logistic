@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AlertifyService } from './alertify.service'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   private dataUrl = "http://localhost:5000/data";
   private allDataSrc = "http://localhost:5000/allData/src";
   private allDataDes = "http://localhost:5000/allData/des";
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient, private route: Router, private alertify: AlertifyService) { }
 
   getAllDataSrc() {
     return this.http.get(this.allDataSrc);
@@ -40,7 +41,8 @@ export class AuthService {
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
-    this.route.navigate(['logout'])
+    this.alertify.success("Logout Sucessful")
+    this.route.navigate(['/'])
   }
 
   getToken() {
