@@ -32,6 +32,11 @@
             <mat-error>This Field is required</mat-error>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Distance</mat-label>
+            <input matInput placeholder="Enter Distance in km" formControlName="km">
+            <mat-error>This Field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
             <mat-label>Weight</mat-label>
             <input matInput placeholder="Enter Weight" formControlName="kg">
             <mat-error>This Field is required</mat-error>
@@ -40,14 +45,14 @@
         </form>
       </mat-card>
     </div>
-    <div style="display: flex;margin-top: 50px; z-index: 15; background-color: aliceblue;" *ngIf="flag">
+    <!-- <div style="display: flex;margin-top: 50px; z-index: 15; background-color: aliceblue;" *ngIf="flag">
       <table class="table1">
         <ng-container>
           <tr>
             <th>Name</th>
           </tr>
-          <tr *ngFor="let n of name">
-            <td>{{n}}</td>
+          <tr *ngFor="let name of partnerName">
+            <td>{{name}}</td>
           </tr>
         </ng-container>
       </table>
@@ -61,7 +66,7 @@
           </tr>
         </ng-container>
       </table>
-    </div>
+    </div> -->
   </div>
   <img src="../../assets/img/hotel.png" class="hotel" alt="">
   <img src="../../assets/img/car2.png" class="car2" alt="">

@@ -16,12 +16,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class HomeComponent implements OnInit {
 
   flag: boolean = false
-  data1: any;
+  resData: any
   i!: any;
   allDataSrc: any
   allDataDes: any
-  price: any = []
-  name: any = []
+  price: any
+  partnerName: any
   constructor(private authService: AuthService, private alertify: AlertifyService, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   data = this.fb.group({
     src: ['', Validators.required],
     des: ['', Validators.required],
+    km: [''],
     kg: ['', Validators.required]
   })
 
@@ -43,17 +44,8 @@ export class HomeComponent implements OnInit {
     if (this.data.valid) {
       this.authService.getData(this.data.value.src, this.data.value.des).subscribe((res: any) => {
         if (res.status == 200) {
-          this.data1 = res.data
-          //console.log(this.data1)
-          for (this.i = 0; this.i <= this.data1.length + 1; this.i++) {
-            this.name.push(this.data1[0].partner[this.i].name)
-          }
-          //console.log(this.name)
-          for (this.i = 0; this.i <= this.data1.length + 1; this.i++) {
-            //this.price.push(this.data1[0].partner[this.i].price)
-            this.price.push((this.data.value.kg * this.data1[0].partner[this.i].price))
-          }
-          //console.log(this.price)
+          this.resData = res.data
+          this.partnerName = this.resData[0].partner
         }
       })
     }

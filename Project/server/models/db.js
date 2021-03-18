@@ -11,3 +11,4 @@ mongoose.connect("mongodb://localhost:27017/Logistic", {
 
 require('./logistic_reg.model');
 require('./logistic.model');
+require('./adminModel');

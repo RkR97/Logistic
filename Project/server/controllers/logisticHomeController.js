@@ -30,7 +30,6 @@ router.get('/allData/des', async (req, res) => {
 })
 
 router.get('/:src/:des', (req, res) => {
-    var { src, des } = req.body;
     LogisticHome.find({ src: req.params.src, des: req.params.des }, (err, docs) => {
         if (err) { throw err }
         else if (!docs) {
@@ -40,4 +39,14 @@ router.get('/:src/:des', (req, res) => {
     })
 })
 
+router.post('/addData', (req, res) => {
+    var { src, des, partner } = req.body
+    var newUser = new LogisticHome({ src, des, partner });
+    newUser.save((err, doc) => {
+        if (err) { throw err }
+        else {
+            res.json({ message: "Data inserted sucessfully", status: 200 })
+        }
+    })
+})
 module.exports = router;

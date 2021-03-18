@@ -26,6 +26,8 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     TopCourierComponent,
     LogoutPageComponent,
     ContactUsComponent,
+    AdminLoginComponent,
+    AdminPageComponent,
 
   ],
   imports: [

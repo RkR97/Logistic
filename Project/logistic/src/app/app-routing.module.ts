@@ -8,6 +8,8 @@ import { AuthgaurdGuard } from '../AuthGaurd/authgaurd.guard';
 import { TopCourierComponent } from './top-courier/top-courier.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'service-partner', component: TopCourierComponent },
   { path: 'logout', component: LogoutPageComponent },
-  { path: 'contactUs', component: ContactUsComponent }
+  { path: 'contactUs', component: ContactUsComponent },
+  { path: 'admin', component: AdminLoginComponent },
+  { path: 'adminDashboard', component: AdminPageComponent }
 ];
 
 @NgModule({
