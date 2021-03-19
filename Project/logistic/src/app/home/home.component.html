@@ -25,7 +25,7 @@
             <mat-label>To</mat-label>
             <input matInput placeholder="Enter Destination" formControlName="des" [matAutocomplete]="auto2">
             <mat-autocomplete #auto2="matAutocomplete">
-              <mat-option *ngFor="let item2 of allDataSrc" [value]="item2">
+              <mat-option *ngFor="let item2 of allDataDes" [value]="item2">
                 {{item2}}
               </mat-option>
             </mat-autocomplete>

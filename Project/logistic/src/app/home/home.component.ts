@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   flag: boolean = false
   resData: any
   allDataSrc: any
+  allDataDes: any
   price: any = []
   partnerName: any = []
   name: any = []
@@ -28,6 +29,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getAllDataSrc().subscribe((res: any) => {
       this.allDataSrc = res.data;
+    })
+
+    this.authService.getAllDataDes().subscribe((res: any) => {
+      this.allDataDes = res.data;
     })
 
   }
