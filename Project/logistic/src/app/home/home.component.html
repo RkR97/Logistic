@@ -41,32 +41,70 @@
             <input matInput placeholder="Enter Weight" formControlName="kg">
             <mat-error>This Field is required</mat-error>
           </mat-form-field>
-          <button mat-raised-button type="submit" class="btn" (click)="displayPrice()">Calculate</button>
+          <button mat-raised-button type="submit" class="btn">Calculate</button>
         </form>
       </mat-card>
     </div>
-    <!-- <div style="display: flex;margin-top: 50px; z-index: 15; background-color: aliceblue;" *ngIf="flag">
+    <div *ngIf="flag">
+      <table>
+        <tr>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Distance</th>
+        </tr>
+        <tr>
+          <td>{{source}}</td>
+          <td>{{destination}}</td>
+          <td>{{distance}}</td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="flag">
       <table class="table1">
-        <ng-container>
-          <tr>
-            <th>Name</th>
-          </tr>
-          <tr *ngFor="let name of partnerName">
-            <td>{{name}}</td>
-          </tr>
-        </ng-container>
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr *ngFor="let n of name">
+          <td>{{partnerName[n]}}</td>
+        </tr>
       </table>
       <table class="table2">
-        <ng-container>
-          <tr>
-            <th>Price</th>
-          </tr>
-          <tr *ngFor="let p of price">
-            <td>{{p}}</td>
-          </tr>
-        </ng-container>
+        <tr>
+          <th>Price</th>
+        </tr>
+        <tr *ngFor="let p of price">
+          <td>{{p}}</td>
+        </tr>
       </table>
-    </div> -->
+    </div>
+    <div>
+      <table *ngIf="!flag">
+        <tr>
+          <th>Name</th>
+          <th>Within city*</th>
+          <th>Within State*</th>
+          <th>Within country*</th>
+        </tr>
+        <tr>
+          <td>Bluedart</td>
+          <td>100 Rs</td>
+          <td>500 Rs</td>
+          <td>1000 Rs</td>
+        </tr>
+        <tr>
+          <td>Fedex</td>
+          <td>85 Rs</td>
+          <td>250 Rs</td>
+          <td>850 Rs</td>
+        </tr>
+        <tr>
+          <td>DHL</td>
+          <td>50 Rs</td>
+          <td>150 Rs</td>
+          <td>900 Rs</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <img src="../../assets/img/hotel.png" class="hotel" alt="">
   <img src="../../assets/img/car2.png" class="car2" alt="">

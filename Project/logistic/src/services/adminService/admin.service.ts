@@ -18,9 +18,13 @@ export class AdminService {
   getAdminUserName() {
     return localStorage.getItem("adminUserName");
   }
+  getAdminToken() {
+    return !!localStorage.getItem("adminToken")
+  }
 
   adminLoggedOut() {
     localStorage.removeItem("adminUserName");
-    this.route.navigate(['admin'])
+    localStorage.removeItem("adminToken")
+    this.route.navigate(['/'])
   }
 }

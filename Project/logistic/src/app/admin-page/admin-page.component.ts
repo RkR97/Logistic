@@ -29,6 +29,7 @@ export class AdminPageComponent implements OnInit {
       this.dataService.postData(this.newData.value).subscribe((res: any) => {
         if (res.status == 200) {
           this.alertify.success("Data Inserted Sucessfull");
+          this.newData.reset()
         } else {
           this.alertify.success("Data Inserted Failed");
         }

@@ -21,13 +21,13 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { AuthService } from 'src/services/auth.service';
 import { AuthgaurdGuard } from '../AuthGaurd/authgaurd.guard';
 import { TokenIntercepterService } from 'src/services/token-intercepter.service';
-import { TopCourierComponent } from './top-courier/top-courier.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { PincodeComponent } from './pincode/pincode.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +37,11 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     SigninComponent,
     SignupComponent,
     NavComponent,
-    TopCourierComponent,
     LogoutPageComponent,
     ContactUsComponent,
     AdminLoginComponent,
     AdminPageComponent,
+    PincodeComponent,
 
   ],
   imports: [

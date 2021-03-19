@@ -7,8 +7,7 @@ const logisticHomeController = require('./controllers/logisticHomeController');
 const logisticLoginController = require('./controllers/logisticLoginController');
 const logisticRegController = require('./controllers/logisticRegController');
 const adminController = require('./controllers/adminController');
-// const userModel = require('./models/logistic_reg.model');
-// const adminLogin = require('./models/adminModel');
+const pincodeController = require('./controllers/pincodeController')
 const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +19,8 @@ app.use('/allData/src', logisticHomeController);
 app.use('/', logisticHomeController);
 app.use('/admin', adminController)
 app.use('/', logisticHomeController)
+app.use('', pincodeController);
+
 app.listen(port, () => {
     console.log(`Server is running at port no. : ${port}`);
 });

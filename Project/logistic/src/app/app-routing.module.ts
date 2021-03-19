@@ -5,18 +5,18 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { AuthgaurdGuard } from '../AuthGaurd/authgaurd.guard';
-import { TopCourierComponent } from './top-courier/top-courier.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { PincodeComponent } from './pincode/pincode.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'dashboard', component: HomeComponent, canActivate: [AuthgaurdGuard] },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'service-partner', component: TopCourierComponent },
+  { path: 'service-partner', component: PincodeComponent },
   { path: 'logout', component: LogoutPageComponent },
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'admin', component: AdminLoginComponent },

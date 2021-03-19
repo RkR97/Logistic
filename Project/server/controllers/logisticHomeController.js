@@ -32,10 +32,17 @@ router.get('/allData/des', async (req, res) => {
 router.get('/:src/:des', (req, res) => {
     LogisticHome.find({ src: req.params.src, des: req.params.des }, (err, docs) => {
         if (err) { throw err }
-        else if (!docs) {
+        else if (docs == '') {
             res.json({ message: "No Service", status: 202 })
+        } else {
+            var length = Object.keys(docs[0].partner).length
+            var x = [], y = []
+            for (var i = 0; i < length - 1; i++) {
+                x[i] = Math.floor(Math.random() * 500)
+                y[i] = Math.floor(Math.random() * 100)
+            }
+            res.json({ messgae: "data", status: 200, data: docs, x, y })
         }
-        res.json({ messgae: "data", status: 200, data: docs })
     })
 })
 

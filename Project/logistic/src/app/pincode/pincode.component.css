@@ -1,0 +1,32 @@
+.example-card {
+    width: 450px;
+    box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
+    border-radius: 15px;
+    font-family:'Courier New', Courier, monospace;
+}
+ 
+.matDiv {
+    position:absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tableDiv {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tableDiv table, th, td {
+    border: 1px solid black;
+}
+
+.mssDiv {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+}

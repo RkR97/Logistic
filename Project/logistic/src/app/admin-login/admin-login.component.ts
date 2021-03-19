@@ -28,6 +28,7 @@ export class AdminLoginComponent implements OnInit {
         if (res.status == 200) {
           this.alertify.success('Signin Successful');
           this.route.navigate(['adminDashboard']);
+          localStorage.setItem("adminToken", res.token)
           localStorage.setItem("adminUserName", res.adminData.userName)
         } else if (res.status == 401) {
           this.alertify.error("Please enter correct user name/password");

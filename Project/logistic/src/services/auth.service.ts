@@ -13,6 +13,7 @@ export class AuthService {
   private dataUrl = "http://localhost:5000/data";
   private allDataSrc = "http://localhost:5000/allData/src";
   private allDataDes = "http://localhost:5000/allData/des";
+  private pincodeURL = "http://localhost:5000/pincode";
   constructor(private http: HttpClient, private route: Router, private alertify: AlertifyService) { }
 
   getAllDataSrc() {
@@ -50,5 +51,9 @@ export class AuthService {
   }
   getUserName() {
     return localStorage.getItem('userName')
+  }
+
+  getPincodeData(pincode: any) {
+    return this.http.post(this.pincodeURL, pincode);
   }
 }

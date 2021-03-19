@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopCourierComponent } from './top-courier.component';
+import { PincodeComponent } from './pincode.component';
 
-describe('TopCourierComponent', () => {
-  let component: TopCourierComponent;
-  let fixture: ComponentFixture<TopCourierComponent>;
+describe('PincodeComponent', () => {
+  let component: PincodeComponent;
+  let fixture: ComponentFixture<PincodeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopCourierComponent ]
+      declarations: [ PincodeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopCourierComponent);
+    fixture = TestBed.createComponent(PincodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
