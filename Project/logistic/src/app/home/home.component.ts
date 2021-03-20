@@ -1,9 +1,10 @@
-//import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AlertifyService } from '../../services/alertify.service';
+// import { Observable } from 'rxjs';
+// import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { AlertifyService } from '../../services/alertify.service';
 export class HomeComponent implements OnInit {
 
   flag: boolean = false
+  flag2: boolean = false
   resData: any
   allDataSrc: any
   allDataDes: any
@@ -23,8 +25,15 @@ export class HomeComponent implements OnInit {
   source: any
   destination: any
   distance: any
+  // filteredOptions!: Observable<string[]>;
   constructor(private authService: AuthService, private alertify: AlertifyService, private route: Router, private fb: FormBuilder) { }
 
+  data = this.fb.group({
+    src: ['', Validators.required],
+    des: ['', Validators.required],
+    km: [''],
+    kg: ['', Validators.required]
+  })
 
   ngOnInit(): void {
     this.authService.getAllDataSrc().subscribe((res: any) => {
@@ -35,15 +44,16 @@ export class HomeComponent implements OnInit {
       this.allDataDes = res.data;
     })
 
+    // this.filteredOptions = this.data.valueChanges.pipe(
+    //   startWith(''),
+    //   map(value => this._filter(value))
+    // );
   }
 
-  data = this.fb.group({
-    src: ['', Validators.required],
-    des: ['', Validators.required],
-    km: [0],
-    kg: ['', Validators.required]
-  })
-
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLocaleLowerCase();
+  //   return this.allDataSrc.filter((option:any) => option.toLocaleLowerCase().indexOf(filterValue) === 0);
+  // }
   onSubmit() {
     if (this.data.valid) {
       this.authService.getData(this.data.value.src, this.data.value.des).subscribe((res: any) => {
@@ -54,15 +64,19 @@ export class HomeComponent implements OnInit {
           this.resData = res.data
           this.partnerName = this.resData[0].partner
           this.name = Object.keys(this.partnerName)
-          for (let i = 0; i < res.x.length; i++) {
-            this.price[i] = Math.floor((res.x[i] * 0.01 * this.data.value.km + parseInt(this.data.value.km)) +
-              (res.y[i] * 0.01 * this.data.value.kg + parseInt(this.data.value.kg)))
-          }
-          if (this.data.value.km != 0) {
+          if (this.data.value.km != 0 || this.data.value.km != '') {
+            for (let i = 0; i < res.x.length; i++) {
+              this.price[i] = Math.floor((res.x[i] * 0.01 * this.data.value.km + parseInt(this.data.value.km)) +
+                (res.y[i] * 0.01 * this.data.value.kg + parseInt(this.data.value.kg)))
+            }
             this.flag = true
+          } else {
+            this.flag = false
+            this.flag2 = true
           }
-          this.data.reset()
         } else {
+          this.flag = false
+          this.flag2 = false
           alert("No service to this Route yet")
         }
       })
