@@ -38,8 +38,8 @@ router.get('/:src/:des', (req, res) => {
             var length = Object.keys(docs[0].partner).length
             var x = [], y = []
             for (var i = 0; i < length - 1; i++) {
-                x[i] = Math.floor(Math.random() * 500)
-                y[i] = Math.floor(Math.random() * 100)
+                x[i] = Math.ceil(Math.random() * 80)
+                y[i] = Math.ceil(Math.random() * 1000)
             }
             res.json({ messgae: "data", status: 200, data: docs, x, y })
         }

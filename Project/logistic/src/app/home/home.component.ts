@@ -64,10 +64,11 @@ export class HomeComponent implements OnInit {
           this.resData = res.data
           this.partnerName = this.resData[0].partner
           this.name = Object.keys(this.partnerName)
+          console.log(res.x, res.y)
           if (this.data.value.km != 0 || this.data.value.km != '') {
             for (let i = 0; i < res.x.length; i++) {
-              this.price[i] = Math.floor((res.x[i] * 0.01 * this.data.value.km + parseInt(this.data.value.km)) +
-                (res.y[i] * 0.01 * this.data.value.kg + parseInt(this.data.value.kg)))
+              this.price[i] = Math.ceil(((res.x[i] * 0.01) * this.data.value.km) +
+                ((res.y[i] * 0.01) * this.data.value.kg))
             }
             this.flag = true
           } else {
