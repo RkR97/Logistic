@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutPageComponent },
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'admin', component: AdminLoginComponent },
-  { path: 'adminDashboard', component: AdminPageComponent }
+  { path: 'adminDashboard', component: AdminPageComponent, canActivate: [AdminGuard] }
 ];
 
 @NgModule({
