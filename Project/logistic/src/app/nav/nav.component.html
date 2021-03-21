@@ -41,3 +41,6 @@
     </div>
   </nav>
 </div>
+<div *ngIf="adminService.getAdminToken()">
+  <button mat-raised-button style="cursor: pointer;" (click)="adminService.adminLoggedOut()">Logout</button>
+</div>
