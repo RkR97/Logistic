@@ -10,6 +10,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { PincodeComponent } from './pincode/pincode.component';
+import { AdminGuard } from 'src/AuthGaurd/adminGaurd/admin.guard';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
