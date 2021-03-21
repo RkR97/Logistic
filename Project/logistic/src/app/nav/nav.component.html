@@ -1,4 +1,3 @@
-
 <div *ngIf="!adminService.getAdminToken()">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -8,62 +7,37 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand rest" href="#" >
+        <a class="navbar-brand rest" href="#">
           <h1><b><span style="color: #241a71;">Logistic</span>
-            <span style="color: red;"> Agency</span></b></h1></a>
+              <span style="color: red;"> Agency</span></b></h1>
+        </a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav" >
+        <ul class="nav navbar-nav">
           <li><a routerLink="/" routerLinkActive="active">
-            <span class="glyphicon glyphicon-home"></span> <b> Home</b> </a></li>
+              <span class="glyphicon glyphicon-home"></span> <b> Home</b> </a></li>
           <li class="dropdown">
             <a routerLink="/dashboard" routerLinkActive="active">
               <i class="fab fa-servicestack"></i><b> Service</b> </a>
 
           </li>
           <li><a routerLink="/service-partner" routerLinkActive="active">
-            <i class="fas fa-dolly"></i><b> Search Service Partner</b></a></li>
+              <i class="fas fa-dolly"></i><b> Search Service Partner</b></a></li>
           <li><a routerLink="/contactUs" routerLinkActive="active">
-             <i class="fas fa-phone-alt"></i><b> Contact Us</b></a></li>
+              <i class="fas fa-phone-alt"></i><b> Contact Us</b></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <span class="example-spacer"></span>
-      <button mat-raised-button routerLink="/signin" *ngIf="!_authService.loggedIn()" class="btn">Sign in</button>
-      <button mat-raised-button routerLink="/signup" *ngIf="!_authService.loggedIn()" class="btn">Sign Up</button>
-      <div *ngIf="_authService.loggedIn()">
-        <button mat-raised-button style="cursor: pointer;" class="btn" (click)="false">Welcome
-          {{_authService.getUserName()}}</button>
-        <button mat-raised-button style="cursor: pointer;" class="btn" (click)="_authService.logoutUser()">Logout</button>
-      </div>
+          <button mat-raised-button routerLink="/signin" *ngIf="!_authService.loggedIn()" class="btn">Sign in</button>
+          <button mat-raised-button routerLink="/signup" *ngIf="!_authService.loggedIn()" class="btn">Sign Up</button>
+          <div *ngIf="_authService.loggedIn()">
+            <button mat-raised-button style="cursor: pointer;" class="btn" (click)="false">Welcome
+              {{_authService.getUserName()}}</button>
+            <button mat-raised-button style="cursor: pointer;" class="btn"
+              (click)="_authService.logoutUser()">Logout</button>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
-  </div>
-
-<p *ngIf="!adminService.getAdminToken()">
-  <mat-toolbar class="navhead">
-    <div class="logo">Logistic <span>Aggregator</span></div>
-    <ul>
-      <li><a routerLink="/" routerLinkActive="active"><i class="fa fa-home"></i> Home</a></li>
-      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-shipping-fast"></i> Service</a></li>
-      <li><a routerLink="/service-partner" routerLinkActive="active"><i class="fas fa-search"></i> Search Service
-          Partner</a>
-      </li>
-      <li><a routerLink="/contactUs" routerLinkActive="active"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
-    </ul>
-    <span class="example-spacer"></span>
-    <button mat-raised-button routerLink="/signin" *ngIf="!_authService.loggedIn()" class="btn">Sign in</button>
-    <button mat-raised-button routerLink="/signup" *ngIf="!_authService.loggedIn()" class="btn">Sign Up</button>
-    <div *ngIf="_authService.loggedIn()">
-      <button mat-raised-button style="cursor: pointer;" class="btn" (click)="false">Welcome
-        {{_authService.getUserName()}}</button>
-      <button mat-raised-button style="cursor: pointer;" class="btn" (click)="_authService.logoutUser()">Logout</button>
-    </div>
-  </mat-toolbar>
-</p>
-
-<div *ngIf="adminService.getAdminToken()">
-  <button mat-button (click)="adminService.adminLoggedOut()">Logout</button>
 </div>
-

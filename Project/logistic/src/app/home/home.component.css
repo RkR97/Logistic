@@ -1,5 +1,5 @@
 .example-card {
-  width: 850px;
+  width: 900px;
   z-index: 10;
   box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
   border-radius: 15px;
@@ -8,6 +8,15 @@
 @media (max-width:700px){
   .example-card {
     width: 500px;
+    z-index: 10;
+    box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
+    border-radius: 15px;
+    font-family:'Courier New', Courier, monospace;
+  }
+}
+@media (max-width:400px){
+  .example-card {
+    width: 346px;
     z-index: 10;
     box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.3);
     border-radius: 15px;
@@ -84,8 +93,6 @@ letter-spacing: normal;
 
 /* table css */
 
-
-
  .table1{
   position: absolute;
   z-index: 2;
@@ -110,7 +117,7 @@ letter-spacing: normal;
     border-collapse: collapse;
     border-spacing: 0;
     border-radius: 12px 0px 0 0;
-    overflow: hidden;
+    overflow: scroll;
 
    }
 }
@@ -163,6 +170,21 @@ letter-spacing: normal;
     z-index: 2;
     left: 33%;
     top: 121%;
+    transform: translate(-50%,-50%);
+    width: 28%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px 0px 0 0;
+    overflow: hidden;
+
+   }
+}
+@media(max-width:400px){
+  .table3{
+    position: absolute;
+    z-index: 2;
+    left: 22%;
+    top: 114%;
     transform: translate(-50%,-50%);
     width: 28%;
     border-collapse: collapse;
