@@ -11,19 +11,19 @@
             </form>
         </mat-card>
     </div>
-    <div class="tableDiv" *ngIf="flag">
-        <table>
-            <tr>
-                <th>
-                    Service Provider Name
-                </th>
-            </tr>
-            <tr *ngFor="let p of pincodePartner">
-                <td>{{p}}</td>
-            </tr>
-        </table>
-    </div>
+
+    <table class="table1"  *ngIf="flag">
+      <tr>
+        <th>
+            Service Provider Name
+        </th>
+    </tr>
+    <tr *ngFor="let p of pincodePartner">
+      <td>{{p}}</td>
+  </tr>
+</table>
+ </div>
     <div class="mssDiv" *ngIf="!flag">
         {{message}}
     </div>
-</div>
+

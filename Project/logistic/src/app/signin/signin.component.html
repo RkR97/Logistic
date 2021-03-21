@@ -1,6 +1,7 @@
 <div class="container">
     <div fxLayoutAlign="center center" fxFlexFill class="signin">
-        <mat-card fxFlex="25">
+
+      <mat-card  fxFlex="25">
             <h2>Signin</h2>
             <form fxLayoutAlign="stretch" fxLayout="column" autocomplete="off" [formGroup]="user"
                 (ngSubmit)="onSubmit()">
@@ -18,6 +19,7 @@
             </form>
             <p>Don't have an account?<a routerLink="/signup" style="text-decoration: none;"> SignUp</a></p>
         </mat-card>
+
     </div>
     <img src="../../assets/img/hotel.png" class="hotel" alt="">
     <img src="../../assets/img/car2.png" class="car2" alt="">

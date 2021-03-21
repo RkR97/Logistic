@@ -72,6 +72,38 @@
       </tr>
     </table>
     <div *ngIf="flag">
+
+      <table class="table3">
+        <tr>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Distance</th>
+        </tr>
+        <tr>
+          <td>{{source}}</td>
+          <td>{{destination}}</td>
+          <td>{{distance}}</td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="flag">
+      <table class="table1">
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr *ngFor="let n of name">
+          <td>{{partnerName[n]}}</td>
+        </tr>
+      </table>
+      <table class="table2">
+        <tr>
+          <th>Price</th>
+        </tr>
+        <tr *ngFor="let p of price">
+          <td>{{p}}</td>
+        </tr>
+      </table>
+
       <div>
         <table>
           <tr>
@@ -104,6 +136,7 @@
           </tr>
         </table>
       </div>
+
     </div>
     <div>
     </div>
